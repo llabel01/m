@@ -9,99 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <title>Nav Bar</title>
-
-    <style>
-        body {
-            background-color: #EAE7DC;
-        }
-        /* Navigation Bar */
-        div.nav {
-            height: 100%;
-            width: 166px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #D8C3A5;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
-        ul.nav {
-            padding: 15px;
-            list-style-type: none;
-        }
-        ul.nav li {
-            margin: 24px 0;
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        ul.nav li a {
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #666564;
-        }
-        ul.nav li a:hover {
-            color: #000000;
-        }
-        /* ~Responsive~ Overlay */
-        div.overlay {
-            text-align: center;
-            visibility: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 2;
-        }
-        ul.overlay {
-            list-style-type: none;
-        }
-        ul.overlay li {
-            margin: 24px 0;
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        ul.overlay li a {
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #EAE7DC;
-        }
-        ul.overlay li a:hover {
-            color: #666564;
-        }
-        /* Hamburger Menu */
-        div.icon {
-            float: right;
-            color: #000000;
-            visibility: hidden;
-            z-index: 2;
-        }
-
-        /* Media queries control which nav bar to display */
-        @media screen and (max-width: 550px) {
-            .nav {
-                visibility: hidden;
-            }
-            #menuBars {
-                visibility: visible;
-            }
-        }
-        @media screen and (min-width: 550px) {
-            .nav {
-                visibility: visible;
-            }
-            div.icon {
-                visibility: hidden;
-            }
-            div.overlay {
-                visibility: hidden;               
-            }
-        }
-    </style>
 
 </head>
 
@@ -142,13 +51,11 @@
             $('#menuBars').css('visibility', 'hidden');
             $('div.overlay').css('visibility', 'visible');
         })
-
         /* User has clicked in div, but not on a link - hide overlay */
         $('div.overlay').click(function(){
             $('div.overlay').css('visibility', 'hidden');
             $('#menuBars').css('visibility', 'visible');
         })
-
         /* Special event listeners to hide overlay and 
          * re-build icon when screen is resized - needed as
          * javascript overrides media queries */
@@ -167,7 +74,6 @@
             }
         }
         mq2.addListener(addMenu);
-
     </script>
 
 </body>
