@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- Nav Bar Stuff: -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #EAE7DC;
+        }
+        #ShopHeader {
+            padding-left: 200px;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+        }
+        #productsContainer {
+            padding: 0px 15px;
+            padding-left: 180px;
+            display: flex;
+            text-align: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .productContainer {
+            text-align: center;
+            padding: 40px 20px;
+            width: 200px;
+            font-family: 'Quicksand', sans-serif; 
+        }
+        .productContainer div.productName { 
+            box-sizing: border-box;
+            height: 40px;     
+        }
+        .productContainer div.productPrice {
+            padding-bottom: 10px;
+            font-size: 13px;
+        }
+        .productContainer img.productImg {
+            width: 200px;
+        }
+        .productContainer div.addToCart {
+            background-color: rgba(233,128,116, 0.8);
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 8px;
+            width: 100%;
+        }
+        .productContainer div.addToCart:hover {
+            background-color: rgba(232,90,79, 0.8);
+        }
+
+        @media screen and (max-width: 700px) {
+            .productContainer img.productImg {
+                width: 150px;
+            }
+            .productContainer {
+                width: 150px
+            }
+        }
+        @media screen and (max-width: 550px) {
+            #productsContainer {   
+                padding-left: 0px;           
+            }   
+            #ShopHeader {
+                padding-left: 0px;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+            .productContainer img.productImg {
+                width: 225px;
+            }
+            .productContainer img.productImg {
+                width: 225px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!---------------------------------------------------------------------->
+    <!--                          Navigation Bar                          -->
+    <!---------------------------------------------------------------------->
+
+    <div class="nav">
+        <ul class="nav">
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>   
+    </div> 
+
+    <div class="icon">
+        <i id="menuBars" class="fa fa-bars fa-2x"></i>
+    </div>
+
+    <h2 id="ShopHeader">Shop Our Teas</h2>
+
+    <!-- For when screen < 550 px-->
+    <div class="overlay" id="overlay">
+        <ul class="overlay">
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>  
+    </div>
+
+    <script language="javascript">
+        /* User has clicked menu - display overlay */
+        $('#menuBars').click(function(){
+            $('#menuBars').css('visibility', 'hidden');
+            $('div.overlay').css('visibility', 'visible');
+        })
+        /* User has clicked in div, but not on a link - hide overlay */
+        $('div.overlay').click(function(){
+            $('div.overlay').css('visibility', 'hidden');
+            $('#menuBars').css('visibility', 'visible');
+        })
+        /* Special event listeners to hide overlay and 
+         * re-build icon when screen is resized - needed as
+         * javascript overrides media queries */
+        var mq1 = window.matchMedia('(min-width: 550px)');
+        function deleteOverlay (e) {
+            if (e.matches) {
+                $('div.overlay').css('visibility', 'hidden');
+                $('#menuBars').css('visibility', 'hidden');
+            }
+        }
+        mq1.addListener(deleteOverlay);
+        var mq2 = window.matchMedia('(max-width: 550px)');
+        function addMenu (e) {
+            if (e.matches) {
+                $('#menuBars').css('visibility', 'visible');
+            }
+        }
+        mq2.addListener(addMenu);
+    </script>
+
+    <!---------------------------------------------------------------------->
+    <!--                             Page Code                            -->
+    <!---------------------------------------------------------------------->
+
+    <div id="productsContainer">
+    </div>
+
+    <script>
+        function Tea(name, img, price) {
+            this.name = name;
+            this.img = img;
+            this.price = price;
+        }
+
+        var allTeas = new Array();
+        allTeas[0] = new Tea("Buddha's Blend",
+                             "Teas/Buddha'sBlend.jpg",
+                             10.98);
+        allTeas[1] = new Tea("Chocolate Chili Chai",
+                             "Teas/ChocolateChiliChai.jpg",
+                             9.98);
+        allTeas[2] = new Tea("Coco Mango Chai",
+                             "Teas/CocoMangoChai.jpg",
+                             8.98);
+        allTeas[3] = new Tea("Cool Eucalyptus",
+                             "Teas/CoolEucalyptus.jpg",
+                             8.98);
+        allTeas[4] = new Tea("Flamingo Fresca",
+                             "Teas/FlamingoFresca.jpg",
+                             8.98);
+        allTeas[5] = new Tea("Jasmine Oolong",
+                             "Teas/JasmineOolong.jpg",
+                             9.98);
+        allTeas[6] = new Tea("Lemon Cayenne Cleanse",
+                             "Teas/LemonCayenneCleanse.jpg",
+                             9.98);
+        allTeas[7] = new Tea("Organic Cinnamon Rooibois Chai",
+                             "Teas/OrganicCinnamonRooiboisChai.jpg",
+                             8.98);
+        allTeas[8] = new Tea("Organic Earl Grey Rooibos",
+                             "Teas/OrganicEarlGreyRooibos.jpg",
+                             9.98);
+        allTeas[9] = new Tea("Organic Guayusa",
+                             "Teas/OrganicGuayusa.jpg",
+                             9.98);
+        allTeas[10] = new Tea("Organic Happy Valley Darjeeling",
+                             "Teas/OrganicHappyValleyDarjeeling.jpg",
+                             8.98);
+        allTeas[11] = new Tea("Organic Japenese Sencha",
+                             "Teas/OrganicJapeneseSencha.jpg",
+                             10.98);
+        allTeas[12] = new Tea("Pitaya Power",
+                             "Teas/PitayaPower.jpg",
+                             9.98);
+        allTeas[13] = new Tea("Sheng Pu'erh",
+                             "Teas/ShengPu'erh.jpg",
+                             10.98);
+        allTeas[14] = new Tea("Valerian Nights",
+                             "Teas/ValerianNights.jpg",
+                             9.98);
+        allTeas[15] = new Tea("Vanilla Matcha",
+                             "Teas/VanillaMatcha.jpg",
+                             9.98);
+
+        addTeas();
+        $(document).ready(function() {
+            addEvents();
+        });
+
+        function addTeas() {
+            for (i = 0; i < allTeas.length; i++) {
+                var name = "<div class='productName'>" + allTeas[i].name + "</div>";
+                var image = "<img class='productImg' src= " + allTeas[i].img + "></img>";
+                var price = "<div class='productPrice'> $" + allTeas[i].price + "</div>";
+                var addBtn = "<div class='addToCart'>Add To Cart</div>";
+
+                var product = "<div class='productContainer'>" 
+                              + image + name + price + addBtn + "</div>";
+
+                $("#productsContainer").append(product);
+            }
+        }
+
+        function search(name) {
+            for (i = 0; i < allTeas.length; i++) {
+                if (allTeas[i].name == name)
+                    return allTeas[i];
+            }
+            return -1;
+        }
+
+        function addEvents() {
+            $('.productContainer div.addToCart').click(function(){
+                /* Get all html elements */
+                var htmlElems = (this).parentNode.children;
+                var productName = htmlElems[1].innerHTML;
+
+                /* Get all info related to the product */
+                var productAllInfo = search(productName);
+                if (productAllInfo == -1) {
+                    alert("Something went wrong!");
+                    return;
+                }
+
+                var cookieData = JSON.stringify(productAllInfo);
+
+                document.cookie = productName + "=" + cookieData;
+                alert("Added to Cart!");
+            })
+        }
+
+    </script>
+
+</body>
+</html>
+
+
