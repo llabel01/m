@@ -1,0 +1,247 @@
+<!doctype html>
+<head>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+
+    <title>Blog</title>
+    <style>
+        /*Tea-blog styles*/
+        div.user{
+            font-weight: bold;
+            display: inline;
+            border: 3px solid #D8C3A5;
+            text-align: center;
+            font-size: 22px;
+
+        }
+        div.info{
+            margin-left: 20%;
+            margin-right: 20%;
+            font-size: 20px;
+        }
+        img.logo{
+            width: 150px;
+            height: 150px;
+            padding: 0;
+        }
+
+        /*Fade in and font styles*/
+        body {
+            background-color: #EAE7DC;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            opacity: 1;
+            transition: 1s opacity;
+        }
+        body.fade {
+            opacity: 0;
+            transition: none;
+        }
+
+        /* Navigation Bar */
+        div.nav {
+            height: 100%;
+            width: 240px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #D8C3A5;
+            overflow-x: hidden;
+            padding-top: 0px;
+        }
+        ul.nav {
+            padding: 30px;
+            list-style-type: none;
+        }
+        ul.nav li {
+            margin: 24px 0;
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        ul.nav li a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #666564;
+        }
+        ul.nav li a:hover {
+            color: #000000;
+        }
+
+        /* ~Responsive~ Overlay */
+        div.overlay {
+            text-align: center;
+            visibility: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2;
+        }
+        ul.overlay {
+            list-style-type: none;
+        }
+        ul.overlay li {
+            margin: 24px 0;
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        ul.overlay li a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #EAE7DC;
+        }
+        ul.overlay li a:hover {
+            color: #666564;
+        }
+
+        /* Hamburger Menu */
+        div.icon {
+            float: right;
+            color: #000000;
+            visibility: hidden;
+            z-index: 2;
+        }
+
+        /* Media queries control which nav bar to display */
+        @media screen and (max-width: 550px) {
+            .nav {
+                visibility: hidden;
+            }
+            #menuBars {
+                visibility: visible;
+            }
+        }
+        @media screen and (min-width: 550px) {
+            .nav {
+                visibility: visible;
+            }
+            div.icon {
+                visibility: hidden;
+            }
+            div.overlay {
+                visibility: hidden;               
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>document.body.className += ' fade';</script>
+
+    <!-- For when screen > 550 px-->
+
+    <div class="nav" id="nav">
+        <ul class="nav">
+            <img class='logo' id='logo'  src='tea.png' />
+            <li><a href="">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="Checkout.html">Checkout</a></li>
+        </ul>   
+    </div> 
+
+    <div class="icon">
+        <i id="menuBars" class="fa fa-bars fa-2x"></i>
+    </div>
+
+    <!-- For when screen < 550 px-->
+    <div class="overlay" id="overlay">
+        <ul class="overlay">
+            <li><a href="">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>  
+    </div>
+
+    <script language="javascript">
+        /* User has clicked menu - display overlay */
+        $('#menuBars').click(function(){
+            $('#menuBars').css('visibility', 'hidden');
+            $('div.overlay').css('visibility', 'visible');
+        })
+
+        /* User has clicked in div, but not on a link - hide overlay */
+        $('div.overlay').click(function(){
+            $('div.overlay').css('visibility', 'hidden');
+            $('#menuBars').css('visibility', 'visible');
+        })
+
+        /* Special event listeners to hide overlay and 
+         * re-build icon when screen is resized - needed as
+         * javascript overrides media queries */
+        var mq1 = window.matchMedia('(min-width: 550px)');
+        function deleteOverlay (e) {
+            if (e.matches) {
+                $('div.overlay').css('visibility', 'hidden');
+                $('#menuBars').css('visibility', 'hidden');
+            }
+        }
+        mq1.addListener(deleteOverlay);
+        var mq2 = window.matchMedia('(max-width: 550px)');
+        function addMenu (e) {
+            if (e.matches) {
+                $('#menuBars').css('visibility', 'visible');
+            }
+        }
+        mq2.addListener(addMenu);
+    </script>
+    <div class="whole" id="whole">
+        <h1>Hear About Tea Experiences</h1>
+        <div  class="entries" id="entries"></div>
+        <div class="info" id="info"></div>
+    </div>
+    <script language="javascript">
+        function obj(name, text){
+            this.name = name;
+            this.text = text;
+        }
+
+
+        var users = [];
+        users.push(new obj("George Jacobs", "Many years ago I was bed ridden with arthritis and mild foot pain. All the doctors couldn't figure what was wrong with me and I thought this would never fix itself. However, thanks to What's the Tea, I've not only been cured of all my ailments, but also now have a beautiful mustache. I can now finally pursue my career in juggling thanks to What's the Tea. The Citrus flavor of the Flamingo Fresca has been what I look foward to everyday. I just need more tea at all times, and will do anything to get more..."));
+        users.push(new obj("Andrew Cervantes", "Blueberry scones are a quick and easy breakfast pastry recipe. Since there’s no yeast, they go from the mixing bowl to the oven relatively quickly. First, mix the dry ingredients together. You need flour, sugar, baking powder, salt, and cinnamon. Second, cut cold butter into the dry ingredients. You can use a pastry cutter, 2 forks, or your hands. A food processor works too, but it often overworks the scone dough. To avoid overly dense scones, work the dough as little as possible.Next, whisk the wet ingredients together. You need heavy cream, 1 egg, and vanilla extract. Pour the wet ingredients into the dry ingredients, add the blueberries, then gently mix together. Form the dough into a disc on the counter, then cut into 8 wedges.One of my tricks! To obtain a flaky center and a crumbly exterior, scone dough must remain cold. Cold dough won’t over-spread either. Therefore, I highly recommend you chill the shaped scones for at least 15 minutes prior to baking. You can even refrigerate overnight for a quick breakfast in the morning.After that, bake the scones until golden brown."));
+
+        for (var i = 0; i < users.length; i++) {
+            document.getElementById("entries").innerHTML += "<div class='user' id='" + i + "'>&nbsp" + users[i].name + "&nbsp </div>";
+        }
+         $(document).ready(function(){
+             $('body').removeClass('fade');
+             $('#entries div').on({
+                mouseover : function() {
+                    $(this).css({
+                        'cursor': 'pointer',
+                        'background-color': '#8E8D8A',
+                    });
+                },
+                mouseout : function(){
+                    $('#entries div').css({
+                        'cursor' : 'default',
+                        'background-color': '#EAE7DC',
+                    });
+                },
+                click : function(){
+                    var index = $("#entries div").index(this);
+                    $("#info").html("<br />" + users[index].text + "")
+                        .show();
+                },
+            });
+        });
+    </script>
+</body>
+</html>
