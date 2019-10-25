@@ -6,12 +6,23 @@
         crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <meta charset="utf-8">
 
     <title>Blog</title>
     <style>
         /*Tea-blog styles*/
+        div.header{
+            font-size: 40px;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            color: #666564;
+        }
+        div.whole{
+            text-align: center;
+        }
         div.user{
             font-weight: bold;
             display: inline;
@@ -29,12 +40,12 @@
             width: 150px;
             height: 150px;
             padding: 0;
+            margin: 0;
         }
 
         /*Fade in and font styles*/
         body {
             background-color: #EAE7DC;
-            text-align: center;
             font-family: 'Quicksand', sans-serif;
             opacity: 1;
             transition: 1s opacity;
@@ -42,35 +53,6 @@
         body.fade {
             opacity: 0;
             transition: none;
-        }
-
-        /* Navigation Bar */
-        div.nav {
-            height: 100%;
-            width: 240px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #D8C3A5;
-            overflow-x: hidden;
-            padding-top: 0px;
-        }
-        ul.nav {
-            padding: 30px;
-            list-style-type: none;
-        }
-        ul.nav li {
-            margin: 24px 0;
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        ul.nav li a {
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #666564;
-        }
-        ul.nav li a:hover {
-            color: #000000;
         }
 
         /* ~Responsive~ Overlay */
@@ -202,7 +184,8 @@
         mq2.addListener(addMenu);
     </script>
     <div class="whole" id="whole">
-        <h1>Hear About Tea Experiences</h1>
+        <div class="header">Hear About Tea Experiences</div>
+        <br /> <br />
         <div  class="entries" id="entries"></div>
         <div class="info" id="info"></div>
     </div>
