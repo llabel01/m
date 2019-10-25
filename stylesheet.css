@@ -11,10 +11,14 @@ div.nav {
     left: 0;
     background-color: #D8C3A5;
     overflow-x: hidden;
-    padding-top: 20px;
+}
+div.nav img {
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 140px;
 }
 ul.nav {
-    padding: 15px;
+    padding-left: 15px;
     list-style-type: none;
 }
 ul.nav li {
@@ -30,6 +34,25 @@ ul.nav li a {
 ul.nav li a:hover {
     color: #000000;
 }
+/* Fixed Header Components */
+#FixedHeader {
+    text-align: center;
+}
+#headLogo {
+    width: 160px;
+}
+.Title {
+    font-size: 40px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #666564;
+}
+.pageTitle {
+    padding-left: 165px;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
 /* ~Responsive~ Overlay */
 div.overlay {
     text-align: center;
@@ -41,7 +64,7 @@ div.overlay {
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.9);
     z-index: 2;
 }
 ul.overlay {
@@ -64,8 +87,7 @@ ul.overlay li a:hover {
 div.icon {
     float: right;
     color: #000000;
-    visibility: hidden;
-    z-index: 2;
+    visibility: visible;
 }
 /* Media queries control which nav bar to display */
 @media screen and (max-width: 550px) {
@@ -74,6 +96,12 @@ div.icon {
     }
     #menuBars {
         visibility: visible;
+    }
+    .Title {
+        display: none;
+    }
+    .pageTitle {
+        padding-left: 0px;
     }
 }
 @media screen and (min-width: 550px) {
@@ -86,4 +114,11 @@ div.icon {
     div.overlay {
         visibility: hidden;               
     }
+    #headLogo {
+        display: none;
+    }
+    .Title {
+        padding-left: 165px;
+    }
 }
+
