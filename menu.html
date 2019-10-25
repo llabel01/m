@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Menu </title>
+
+<link rel="import" href="navbar.html">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+      <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel='import' href='navbar.html'>
+
+     <!-- FOR NAR BAR -->
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style type="text/css">
+    html, body{
+      background-color: #EAE7DC;
+      font-color: #8E8D8A;
+      font-family: 'Quicksand', sans-serif;
+      width: 100%;
+      height: 100%;
+      padding: 0px;
+      }
+
+      article{
+        margin-left: 166px;
+      }
+
+      h1{
+        text-align: center;
+        text-transform: uppercase;
+        color: #666564;
+        font-size: 40px;
+      }
+
+      h2{
+        text-align: center;
+        font-weight: bolder;
+        font-size: 25px;
+        margin: 3px;
+      }
+
+      h3{
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        margin: 3px;
+
+      }
+
+      p{
+        text-align: center;
+        font-size: 15px;
+      }
+
+    .column{
+      width: 200px; 
+      border-right: 1px solid #8E8D8A;
+      position: relative;
+      height: 100%;
+      display: table-cell;
+    }
+
+    .row{
+      display: flex;
+      display: table;
+      width: 100%;
+
+    }
+
+    .size{
+      background-color: #D8C3A5;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 8px;
+
+
+    }
+
+    .description{
+      font-style: italic;
+      font-size: 10px;
+      text-align: center;
+      margin: 5px;
+    }
+
+    .milk{
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-size: 8px;
+      background-color: #D8C3A5;
+    }
+/*when screen is less than 550px, stacks columns*/
+  @media screen and (max-width: 550px) {
+  .column {
+    width: 100%;
+  }
+        }
+  </style>
+</head>
+<body>
+
+     <!-- NAR BAR CODE-->
+<nav>
+<div class="nav">
+        <ul class="nav">
+            <li><a href="">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="tea_blog.html">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+        </ul>   
+    </div> 
+
+    <div class="icon">
+        <i id="menuBars" class="fa fa-bars fa-2x"></i>
+    </div>
+
+    <!-- For when screen < 550 px-->
+    <div class="overlay" id="overlay">
+        <ul class="overlay">
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>  
+    </div>
+
+    <script language="javascript">
+        /* User has clicked menu - display overlay */
+        $('#menuBars').click(function(){
+            $('#menuBars').css('visibility', 'hidden');
+            $('div.overlay').css('visibility', 'visible');
+        })
+        /* User has clicked in div, but not on a link - hide overlay */
+        $('div.overlay').click(function(){
+            $('div.overlay').css('visibility', 'hidden');
+            $('#menuBars').css('visibility', 'visible');
+        })
+        /* Special event listeners to hide overlay and 
+         * re-build icon when screen is resized - needed as
+         * javascript overrides media queries */
+        var mq1 = window.matchMedia('(min-width: 550px)');
+        function deleteOverlay (e) {
+            if (e.matches) {
+                $('div.overlay').css('visibility', 'hidden');
+                $('#menuBars').css('visibility', 'hidden');
+            }
+        }
+        mq1.addListener(deleteOverlay);
+        var mq2 = window.matchMedia('(max-width: 550px)');
+        function addMenu (e) {
+            if (e.matches) {
+                $('#menuBars').css('visibility', 'visible');
+            }
+        }
+        mq2.addListener(addMenu);
+    </script>
+</nav>
+
+
+     <!-- MENU PAGE CODE-->
+<article>
+<h1> MENU </h1>
+<div class="row">
+  <div class="column">
+    <h2> HOT/ICED TEA </h2>
+    <div class = 'description'> a freshly brewed tea infusion. </div>
+
+    <div class = "size">
+    <p> 8oz <b> 2.00</b> </br>
+        16oz  <b> 3.50</b> </br>
+        8oz <b> 4.00 </b></br>
+          <i style = "font-size:10px;"> premium teas (*) <b> +50c </b> </i>
+    </p>
+    </div>
+
+    <h3> green </h3>
+    <p> morroccan mint </br> 
+        sencha </br> 
+        genmaicha* </br> 
+        jasmine pearls </br> 
+        matcha </br> </p>
+    <h3> black </h3>
+    <p> earl grey </br> 
+        english breakfast </br> 
+        assam* </br> 
+        nilgiri* </br>  </p>
+    <h3> herbal </h3>
+      <p> earl grey </br> 
+        english breakfast* </br> 
+        assam </br> 
+        nilgiri* </br>  </p>
+  </div>
+    
+
+  <div class="column">
+    <h2> TEA LATTES </h2>
+    <div class = 'description'> a freshly brewed tea infusion combined with steamed milk. </div>
+
+    <div class = "size">
+    <p> 
+        16oz  <b> 4.00 </b></br>
+    </p>
+    </div>
+    <p> london fog </br> 
+    chai </br> 
+    matcha </br> 
+    </p>
+
+    <h2> STEAMERS </h2>
+    <div class = 'description'> steamed milk combined with your choice of flavor. </div>
+
+    <div class = "size">
+    <p> 
+        12oz  <b> 4.00 </b></br>
+        16oz <b> 5.00 </b> </br>
+    </p>
+    </div>
+      <p> honey </br> 
+      lavender </br> 
+      peppermint </br> 
+      cardamom</br> 
+      </p>
+  </div>
+
+  <div class = "column">
+     <h2> BOBA TEAS</h2>
+    <div class = 'description'> a creamy tea combined with tapioca pearls. </div>
+
+    <div class = "size">
+    <p> 
+        16oz <b> 6.00 </b> </br>
+    </p>
+    </div>
+      <p> lavender  </br> 
+      jasmine  </br> 
+      taro  </br> 
+      </p>
+
+      <h2> SNACKS </h2>
+      <div class = 'description'> a treat to accompany your beverage. </div>
+       <p> pastry of the day <b> 3.00 </b>  </br> lemon bar <b> 4.50 </b> </br>
+        toast with jam <b> 2.50 </b> </br>
+        chocolate bar <b> 5.50 </b> </br>
+        chocolate cookie <b> 4.50 </b> </br>
+      </p>
+
+      <div class = "milk">
+        <p> <i><b> milk alternatives: </b></i> </br> 
+          almond <b> +50c </b> </br>
+          soy <b> +1.00 </b></br>
+          oat <b> +50c </b> </br>
+          <i style = "font-size:10px;"> *please notify your server of any allergies or preferences </i> </br></p>
+      </div>
+  </div>
+    
+</div>
+</article>
+
+
+</body>
+<footer></footer>
+</html>
