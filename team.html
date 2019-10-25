@@ -1,0 +1,277 @@
+<!doctype html>
+
+<head>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Home</title>
+    <style>
+    div.header {
+        font-size: 40px;
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        color: #666564
+    }      
+    img.container {
+        height: 50%;
+        width: 50%;
+        text-align: center;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    ul li {
+        font-size: 15px;
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        margin-left: 50px;
+        margin-right: 25px;
+        color: #E98074
+    }
+    div.button ul li{
+        float: right;
+        background-color: #E98074;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    div.about p{
+        font-size: 22px;
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        margin-left: 50px;
+        margin-right: 25px;
+        color: #666564
+    }
+    div.image ul li img {
+        position: relative;
+        text-align: center;
+        display: inline-block;
+        z-index: 5;
+    }
+    div.image ul li div.text {
+        margin-top: auto;
+        left: 0;
+        right: 0;
+        position: absolute;
+        display: none;
+        font-weight: bold;
+        font-size: 15px;
+        font-family: 'Quicksand', sans-serif;
+        text-transform: uppercase;
+        color: #666564;
+        z-index: 10;
+    }
+    /*div.image ul li p{
+        position: absolute;
+        font-size: 22px;
+        float: right;
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        margin-left: 50px;
+        margin-right: 25px;
+        color: #666564
+    }*/
+    </style>
+
+</head>
+<body>
+    <!-- For when screen > 550 px-->
+    <div class="nav">
+        <ul class="nav">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="team.html">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>   
+    </div> 
+
+    <div class="icon">
+        <i id="menuBars" class="fa fa-bars fa-2x"></i>
+    </div>
+
+    <!-- For when screen < 550 px-->
+    <div class="overlay" id="overlay">
+        <ul class="overlay">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Our Menu</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="team.html">Team Members</a></li>
+            <li><a href="">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>  
+    </div>
+
+    <script language="javascript">
+        /* User has clicked menu - display overlay */
+        $('#menuBars').click(function(){
+            $('#menuBars').css('visibility', 'hidden');
+            $('div.overlay').css('visibility', 'visible');
+        })
+        /* User has clicked in div, but not on a link - hide overlay */
+        $('div.overlay').click(function(){
+            $('div.overlay').css('visibility', 'hidden');
+            $('#menuBars').css('visibility', 'visible');
+        })
+        /* Special event listeners to hide overlay and 
+         * re-build icon when screen is resized - needed as
+         * javascript overrides media queries */
+        var mq1 = window.matchMedia('(min-width: 550px)');
+        function deleteOverlay (e) {
+            if (e.matches) {
+                $('div.overlay').css('visibility', 'hidden');
+                $('#menuBars').css('visibility', 'hidden');
+            }
+        }
+        mq1.addListener(deleteOverlay);
+        var mq2 = window.matchMedia('(max-width: 550px)');
+        function addMenu (e) {
+            if (e.matches) {
+                $('#menuBars').css('visibility', 'visible');
+            }
+        }
+        mq2.addListener(addMenu);
+    </script>
+ <!-- Home Page-->
+        <div class="header">Meet our Tea-m</div>
+        
+        <div class="image" id="image">
+           <ul id="galleries">
+                <li>
+                    <img src="olivia.jpeg" id="olivia" class="border" width="50%" height="50%" border="0" title="Olivia" />
+                    <div class="text" id="text">
+                        Hi! My name is Olivia and I'm a senior at Tufts<br>
+                        studying Computer Science and Community Health. <br>
+                        I love tea of all kinds and founded this company<br>
+                        because I wanted to share my love of tea with others.<br> 
+                        When I'm not drinking tea, I'm hanging out with friends <br>
+                        outside, walking my dog, and painting on my front porch. <br>
+                        Enjoy all of our teas!
+                    </div>
+                    <br>
+                </li>
+                <li>
+                    <img src="olivia.jpeg"  id="olivia2" class="border" width="50%" height="50%" border="0" title="Olivia" /></a>
+                    <br>
+                </li>
+                <li>
+                    <img src="olivia.jpeg"  id="olivia3" class="border" width="50%" height="50%" border="0" title="Olivia" />
+                    <br>
+                </li>
+                <li>
+                    <img src="olivia.jpeg"  id="olivia4" class="border" width="50%" height="50%" border="0" title="Olivia" />
+                    <br>
+                </li>
+            </ul>
+        </div>
+        <br /> <br />
+        <div  class="entries" id="entries"></div>
+        <div class="info" id="info"></div>
+    <script language="javascript"> 
+        $(document).ready(function () {
+            $('#olivia').hover(function () {
+                $(this).stop().animate({
+                    opacity: .25
+                }, 200);
+                $('.text').fadeIn();
+            }, function () {
+                $(this).stop().animate({
+                    opacity: 1
+                }, 500);
+                $('.text').fadeOut();
+            });
+
+             $('#olivia2').hover(function () {
+                $(this).stop().animate({
+                    opacity: .25
+                }, 200);
+                $('.text').removeClass('hide');
+            }, function () {
+                $(this).stop().animate({
+                    opacity: 1
+                }, 500);
+                $('.text').addClass('hide');
+            });
+
+              $('#olivia3').hover(function () {
+                $(this).stop().animate({
+                    opacity: .25
+                }, 200);
+                $('.text').removeClass('hide');
+            }, function () {
+                $(this).stop().animate({
+                    opacity: 1
+                }, 500);
+                $('.text').addClass('hide');
+            });
+
+               $('#olivia4').hover(function () {
+                $(this).stop().animate({
+                    opacity: .25
+                }, 200);
+                $('.text').removeClass('hide');
+            }, function () {
+                $(this).stop().animate({
+                    opacity: 1
+                }, 500);
+                $('.text').addClass('hide');
+            });
+        });
+    </script>
+    <!-- Tea_blog Script-->
+<!--     <script language="javascript">
+        function obj(name, text){
+            this.name = name;
+            this.text = text;
+        }
+        var users = [];
+        users.push(new obj("Hi! My name is Olivia and I'm a senior at Tufts studying Computer Science and Community Health. I love tea of all kinds and founded this company because I wanted to share my love of tea with others. When I'm not drinking tea, I'm hanging out with friends outside, walking my dog, and painting on my front porch. Enjoy all of our teas!"));
+        users.push(new obj("Hi! My name is Olivia and I'm a senior at Tufts studying Computer Science and Community Health. I love tea of all kinds and founded this company because I wanted to share my love of tea with others. When I'm not drinking tea, I'm hanging out with friends outside, walking my dog, and painting on my front porch. Enjoy all of our teas!"));
+        for (var i = 0; i < users.length; i++) {
+            document.getElementById("entries").innerHTML += "<div class='user' id='" + i + "'>&nbsp" + users[i].name + "&nbsp </div>";
+        }
+         $(document).ready(function(){
+             $('body').removeClass('fade');
+             $('#entries div').on({
+                mouseover : function() {
+                    $(this).css({
+                        'cursor': 'pointer',
+                        'background-color': '#8E8D8A',
+                    });
+                },
+                mouseout : function(){
+                    $('#entries div').css({
+                        'cursor' : 'default',
+                        'background-color': '#EAE7DC',
+                    });
+                },
+                click : function(){
+                    var index = $("#entries div").index(this);
+                    $("#info").html("<br />" + users[index].text + "")
+                        .show();
+                },
+            });
+        });
+    </script> -->
+
+</body>
+
+</html>
