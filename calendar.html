@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Classes & Events</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+    <!-- Copy 2 links below for nav bar: -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #EAE7DC;
+        }
+        #calendar {
+            table-layout: fixed ;
+            padding-left: 165px;
+            width: 100%;
+            font-family: 'Quicksand', sans-serif;
+        }
+        #calendar .dayOweek {
+            font-family: 'Quicksand', sans-serif;
+            padding: 10px;
+            width: 14.3%;
+        }
+        #calendar .day {
+            width: 14.3%;
+            height: 100px;
+            background-color: #ffffff;
+            position: relative;
+        }
+        #calendar .date {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            color: #8E8D8A;
+            font-family: 'Quicksand', sans-serif;
+        }
+        #calendar .eventTitle {
+            text-align: center;
+            font-size: 1.5vw;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            background-color: #E98074;
+            width: 100%;
+        }
+        #calendar div.eventImg {
+            text-align: center;
+        }
+        #calendar div.eventImg img {
+            width: 80%;
+            padding-bottom: 15%;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+        #EventInformation {
+            padding-left: 165px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        #EventInformation h4 {
+            font-family: 'Quicksand', sans-serif;  
+            color: #E85A4F; 
+            text-align: center;        
+        }
+        #EventInformation .description {
+            box-sizing: border-box;
+            width: 25%;
+            padding: 4px;
+        }
+        #EventInformation img {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #EventInformation .description .deets {
+            color: #8E8D8A;
+            font-family: 'Quicksand', sans-serif;
+            margin: 5px;
+        }
+
+        @media screen and (max-width: 978px) {
+            #EventInformation .description {
+                width: 50%;
+                padding: 8px;
+            }
+        }
+        @media screen and (max-width: 650px) {
+            #calendar {
+                display: none;              
+            }
+        }
+        @media screen and (max-width: 550px) {
+            #EventInformation {
+                padding-left: 0px;
+            }
+        @media screen and (max-width: 400px) {
+            #EventInformation .description {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!---------------------------------------------------------------------->
+    <!--                    Every Page Has This Code                      -->
+    <!---------------------------------------------------------------------->
+
+    <div id="FixedHeader">
+        <div class="icon">
+            <i id="menuBars" class="fa fa-bars fa-2x"></i>
+        </div>
+        <img id="headLogo" src="tea.png" alt="Cup of Tea with Logo">
+    </div>
+
+    <!-- For when screen > 550 px-->
+    <div class="nav">
+        <img id="navLogo" src="tea.png" alt="Cup of Tea with Logo">
+        <ul class="nav">
+            <li><a href="">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>   
+    </div> 
+
+    <!-- For when screen < 550 px-->
+    <div class="overlay" id="overlay">
+        <ul class="overlay">
+            <li><a href="">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
+            <li><a href="">Team Members</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
+        </ul>  
+    </div>
+
+    <script language="javascript">
+        /* User has clicked menu - display overlay */
+        $('#menuBars').click(function(){
+            $('#menuBars').css('visibility', 'hidden');
+            $('div.overlay').css('visibility', 'visible');
+        })
+        /* User has clicked in div, but not on a link - hide overlay */
+        $('div.overlay').click(function(){
+            $('div.overlay').css('visibility', 'hidden');
+            $('#menuBars').css('visibility', 'visible');
+        })
+        /* Special event listeners to hide overlay and 
+         * re-build icon when screen is resized - needed as
+         * javascript overrides media queries */
+        var mq1 = window.matchMedia('(min-width: 550px)');
+        function deleteOverlay (e) {
+            if (e.matches) {
+                $('div.overlay').css('visibility', 'hidden');
+                $('#menuBars').css('visibility', 'hidden');
+            }
+        }
+        mq1.addListener(deleteOverlay);
+        var mq2 = window.matchMedia('(max-width: 550px)');
+        function addMenu (e) {
+            if (e.matches) {
+                $('#menuBars').css('visibility', 'visible');
+            }
+        }
+        mq2.addListener(addMenu);
+    </script>
+
+    <h2 class=Title>What's The Tea</h2>
+    <h2 class=pageTitle>Classes and Events</h2>
+
+    <!---------------------------------------------------------------------->
+    <!--                             Page Code                            -->
+    <!---------------------------------------------------------------------->
+
+<div id="cal">
+<table id="calendar">
+    <tr>
+        <th class="dayOweek" id="Sunday"></th>
+        <th class="dayOweek" id="Monday"></th> 
+        <th class="dayOweek" id="Tuesday"></th>
+        <th class="dayOweek" id="Wednesday"></th>
+        <th class="dayOweek" id="Thursday"></th>
+        <th class="dayOweek" id="Friday"></th>
+        <th class="dayOweek" id="Saturday"></th>
+    </tr>
+
+    <tr>
+        <td class="day">
+            <div class="date">27</div>
+        </td>
+        <td class="day">
+            <div class="date">28</div>
+        </td>
+        <td class="day">
+            <div class="date">29</div>
+            <div class="eventImg"><img src="CalendarImages/Leaves.png" alt="Leaves"></div>
+            <div class="eventTitle">Tea Tasting</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">30</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">31</div>
+            <div class="eventImg"><img src="CalendarImages/Chocolate.png" alt="Chocolate"></div>
+            <div class="eventTitle">Tea & Chocolate</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">1</div>
+        </td>
+        <td class="day">
+            <div class="date">2</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="day">
+            <div class="date">3</div>
+        </td>
+        <td class="day">
+            <div class="date">4</div>
+        </td>
+        <td class="day">
+            <div class="date">5</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">6</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">7</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">8</div>
+        </td>
+        <td class="day">
+            <div class="date">9</div>
+            <div class="eventImg"><img src="CalendarImages/teaWithLeaf.png" alt="Tea"></div>
+            <div class="eventTitle">Tea Basics</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="day">
+            <div class="date">10</div>
+        </td>
+        <td class="day">
+            <div class="date">11</div>
+        </td>
+        <td class="day">
+            <div class="date">12</div>
+            <div class="eventImg"><img src="CalendarImages/Leaves.png" alt="Leaves"></div>
+            <div class="eventTitle">Tea Tasting</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">13</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">14</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">15</div>
+        </td>
+        <td class="day">
+            <div class="date">16</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="day">
+            <div class="date">17</div>
+        </td>
+        <td class="day">
+            <div class="date">18</div>
+        </td>
+        <td class="day">
+            <div class="date">19</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">20</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">21</div>
+            <div class="eventImg"><img src="CalendarImages/Quill.png" alt="Quill"></div>
+            <div class="eventTitle">Poetry Reading</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">22</div>
+        </td>
+        <td class="day">
+            <div class="date">23</div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="day">
+            <div class="date">24</div>
+        </td>
+        <td class="day">
+            <div class="date">25</div>
+        </td>
+        <td class="day">
+            <div class="date">26</div>
+            <div class="eventImg"><img src="CalendarImages/Leaves.png" alt="Leaves"></div>
+            <div class="eventTitle">Tea Tasting</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">27</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">28</div>
+        </td>
+        </td>
+        <td class="day">
+            <div class="date">29</div>
+        </td>
+        <td class="day">
+            <div class="date">30</div>
+        </td>
+    </tr>
+
+</table>
+</div>
+
+<script>
+    var width = window.innerWidth;
+    if (width < 885) {
+        $('#Sunday').html("S");
+        $('#Monday').html("M");
+        $('#Tuesday').html("T");
+        $('#Wednesday').html("W");
+        $('#Thursday').html("T");
+        $('#Friday').html("F");
+        $('#Saturday').html("S");
+    }
+    else {
+        $('#Sunday').html("Sunday");
+        $('#Monday').html("Monday");
+        $('#Tuesday').html("Tuesday");
+        $('#Wednesday').html("Wednesday");
+        $('#Thursday').html("Thursday");
+        $('#Friday').html("Friday");
+        $('#Saturday').html("Saturday");
+    }
+
+    function EventInfo(title, time, price)
+    {
+        this.title = title;
+        this.time = time;
+        this.location = location;
+        this.price = price;
+    }
+    var allEvents = new Array();
+    allEvents["Tea Tasting"] = new EventInfo("Tea Tasting",
+                                             "6:00pm - 7:00pm",
+                                             0);
+    allEvents["Tea & Chocolate"] = new EventInfo("Tea & Chocolate",
+                                                 "7:30pm - 8:30pm",
+                                                 35);
+    allEvents["Poetry Reading"] = new EventInfo("Poetry Reading",
+                                                "8:00pm - 9:30pm",
+                                                0);
+    allEvents["Tea Basics"] = new EventInfo("Tea Basics",
+                                            "1:00pm - 2:00pm",
+                                            30);
+
+    $(document).ready(function(){
+        var mm1 = window.matchMedia('(max-width: 865px)');
+        function abbreviate (e) {
+            if (e.matches) {
+                $('#Sunday').html("S");
+                $('#Monday').html("M");
+                $('#Tuesday').html("T");
+                $('#Wednesday').html("W");
+                $('#Thursday').html("T");
+                $('#Friday').html("F");
+                $('#Saturday').html("S");
+            }
+        }
+        mm1.addListener(abbreviate);
+        var mm2 = window.matchMedia('(min-width: 865px)');
+        function entireName (e) {
+            if (e.matches) {
+                $('#Sunday').html("Sunday");
+                $('#Monday').html("Monday");
+                $('#Tuesday').html("Tuesday");
+                $('#Wednesday').html("Wednesday");
+                $('#Thursday').html("Thursday");
+                $('#Friday').html("Friday");
+                $('#Saturday').html("Saturday");
+            }
+        }
+        mm2.addListener(entireName);
+
+        var mm3 = window.matchMedia('(max-width: 650px)');
+        function addDates (e) {
+            if (e.matches) {
+                $('#BasicsDate').html("11/9");
+                $('#PoetryDate').html("11/21");
+                $('#ChocolateDate').html("10/31");
+                $('#TastingDate').html("10/29, 11/12, 11/26");
+            }
+        }
+        mm3.addListener(addDates);
+        var mm4 = window.matchMedia('(min-width: 650px)');
+        function removeDates (e) {
+            if (e.matches) {
+                $('#BasicsDate').html("");
+                $('#PoetryDate').html("");
+                $('#ChocolateDate').html("");
+                $('#TastingDate').html("");
+            }
+        }
+        mm4.addListener(removeDates);
+    });
+
+</script>
+    
+    <div id="EventInformation">
+        <div class="description">
+            <h4>Tea Tasting</h4>
+            <img src="CalendarImages/TeaTastingEvent.jpg" alt="Tea Tasting">
+            <div class="deets">
+                <div id="TastingDate"></div>
+                6:00pm - 7:00pm<br>
+                FREE<br>
+                Sample our organic teas from India, China, and Nepal. 
+            </div>
+        </div>
+        <div class="description">
+            <h4>Tea and Chocolate</h4>
+            <img src="CalendarImages/TeaChocolateEvent.jpg" alt="Tea and Chocolate" id="blah">
+            <div class="deets">
+                <div id="ChocolateDate"></div>
+                7:30pm - 8:30pm<br>
+                $35<br>
+                By considering texture, aroma, intensity, and flavor we will learn to pair chocolate and tea.
+            </div>
+        </div>
+        <div class="description">
+            <h4>Poetry Reading</h4>
+            <img src="CalendarImages/PoetryReadingEvent.jpg" alt="Man Reading Poetry">
+            <div class="deets">
+                <div id="PoetryDate"></div>
+                8:00pm - 9:30pm<br>
+                FREE<br>
+                Join us for a night of poetry as we showcase some of Boston's amazing poets.
+            </div>
+        </div>
+        <div class="description">
+            <h4>Tea Basics</h4>
+            <img src="CalendarImages/TeaBasicsEvent.png" alt="Row of Teas">
+            <div class="deets">
+                <div id="BasicsDate"></div>
+                1:00pm - 2:00pm<br>
+                $30<br>
+                We will learn about different types of tea and production processes while enjoying tea samples from around the world.  
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
