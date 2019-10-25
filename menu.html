@@ -110,35 +110,44 @@
 <body>
 
      <!-- NAR BAR CODE-->
-<nav>
-<div class="nav">
+<!---------------------------------------------------------------------->
+    <!--                    Every Page Has This Code                      -->
+    <!---------------------------------------------------------------------->
+
+    <div id="FixedHeader">
+        <div class="icon">
+            <i id="menuBars" class="fa fa-bars fa-2x"></i>
+        </div>
+        <img id="headLogo" src="tea.png" alt="Cup of Tea with Logo">
+    </div>
+
+    <!-- For when screen > 550 px-->
+    <div class="nav">
+        <img id="navLogo" src="tea.png" alt="Cup of Tea with Logo">
         <ul class="nav">
             <li><a href="">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="menu.html">Our Menu</a></li>
-            <li><a href="tea_blog.html">Blog</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
             <li><a href="">Team Members</a></li>
-            <li><a href="">Classes & Events</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
+            <li><a href="">Checkout</a></li>
         </ul>   
     </div> 
-
-    <div class="icon">
-        <i id="menuBars" class="fa fa-bars fa-2x"></i>
-    </div>
 
     <!-- For when screen < 550 px-->
     <div class="overlay" id="overlay">
         <ul class="overlay">
             <li><a href="">Home</a></li>
-            <li><a href="">Shop</a></li>
-            <li><a href="">Our Menu</a></li>
-            <li><a href="">Blog</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
             <li><a href="">Team Members</a></li>
-            <li><a href="">Classes & Events</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
             <li><a href="">Checkout</a></li>
         </ul>  
     </div>
+
 
     <script language="javascript">
         /* User has clicked menu - display overlay */
