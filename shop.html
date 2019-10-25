@@ -58,7 +58,6 @@
         .productContainer div.addToCart:hover {
             background-color: rgba(232,90,79, 0.8);
         }
-
         @media screen and (max-width: 700px) {
             .productContainer img.productImg {
                 width: 150px;
@@ -83,18 +82,26 @@
                 width: 225px;
             }
         }
-
     </style>
 
 </head>
 
 <body>
 
-    <!---------------------------------------------------------------------->
-    <!--                          Navigation Bar                          -->
+       <!---------------------------------------------------------------------->
+    <!--                    Every Page Has This Code                      -->
     <!---------------------------------------------------------------------->
 
+    <div id="FixedHeader">
+        <div class="icon">
+            <i id="menuBars" class="fa fa-bars fa-2x"></i>
+        </div>
+        <img id="headLogo" src="tea.png" alt="Cup of Tea with Logo">
+    </div>
+
+    <!-- For when screen > 550 px-->
     <div class="nav">
+        <img id="navLogo" src="tea.png" alt="Cup of Tea with Logo">
         <ul class="nav">
             <li><a href="">Home</a></li>
             <li><a href="#">Shop</a></li>
@@ -106,22 +113,16 @@
         </ul>   
     </div> 
 
-    <div class="icon">
-        <i id="menuBars" class="fa fa-bars fa-2x"></i>
-    </div>
-
-    <h2 id="ShopHeader">Shop Our Teas</h2>
-
     <!-- For when screen < 550 px-->
     <div class="overlay" id="overlay">
         <ul class="overlay">
             <li><a href="">Home</a></li>
-            <li><a href="">Shop</a></li>
+            <li><a href="#">Shop</a></li>
             <li><a href="">Our Menu</a></li>
-            <li><a href="">Blog</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
             <li><a href="">Team Members</a></li>
             <li><a href="">Classes & Events</a></li>
-            <li><a href="">Checkout</a></li>
+            <li><a href="Checkout.html">Checkout</a></li>
         </ul>  
     </div>
 
@@ -156,6 +157,9 @@
         mq2.addListener(addMenu);
     </script>
 
+    <h2 class=Title>What's The Tea</h2>
+    <h2 class=pageTitle>Shop</h2>
+
     <!---------------------------------------------------------------------->
     <!--                             Page Code                            -->
     <!---------------------------------------------------------------------->
@@ -169,7 +173,6 @@
             this.img = img;
             this.price = price;
         }
-
         var allTeas = new Array();
         allTeas[0] = new Tea("Buddha's Blend",
                              "Teas/Buddha'sBlend.jpg",
@@ -219,26 +222,21 @@
         allTeas[15] = new Tea("Vanilla Matcha",
                              "Teas/VanillaMatcha.jpg",
                              9.98);
-
         addTeas();
         $(document).ready(function() {
             addEvents();
         });
-
         function addTeas() {
             for (i = 0; i < allTeas.length; i++) {
                 var name = "<div class='productName'>" + allTeas[i].name + "</div>";
                 var image = "<img class='productImg' src= " + allTeas[i].img + "></img>";
                 var price = "<div class='productPrice'> $" + allTeas[i].price + "</div>";
                 var addBtn = "<div class='addToCart'>Add To Cart</div>";
-
                 var product = "<div class='productContainer'>" 
                               + image + name + price + addBtn + "</div>";
-
                 $("#productsContainer").append(product);
             }
         }
-
         function search(name) {
             for (i = 0; i < allTeas.length; i++) {
                 if (allTeas[i].name == name)
@@ -246,30 +244,23 @@
             }
             return -1;
         }
-
         function addEvents() {
             $('.productContainer div.addToCart').click(function(){
                 /* Get all html elements */
                 var htmlElems = (this).parentNode.children;
                 var productName = htmlElems[1].innerHTML;
-
                 /* Get all info related to the product */
                 var productAllInfo = search(productName);
                 if (productAllInfo == -1) {
                     alert("Something went wrong!");
                     return;
                 }
-
                 var cookieData = JSON.stringify(productAllInfo);
-
                 document.cookie = productName + "=" + cookieData;
                 alert("Added to Cart!");
             })
         }
-
     </script>
 
 </body>
 </html>
-
-
