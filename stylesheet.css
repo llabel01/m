@@ -41,17 +41,12 @@ ul.nav li a:hover {
 #headLogo {
     width: 160px;
 }
-.Title {
+.pageTitle {
     font-size: 40px;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     text-transform: uppercase;
     color: #666564;
-}
-.pageTitle {
-    padding-left: 165px;
-    text-align: center;
-    font-family: 'Quicksand', sans-serif;
 }
 /* ~Responsive~ Overlay */
 div.overlay {
@@ -97,12 +92,6 @@ div.icon {
     #menuBars {
         visibility: visible;
     }
-    .Title {
-        display: none;
-    }
-    .pageTitle {
-        padding-left: 0px;
-    }
 }
 @media screen and (min-width: 550px) {
     .nav {
@@ -117,7 +106,7 @@ div.icon {
     #headLogo {
         display: none;
     }
-    .Title {
+    .pageTitle {
         padding-left: 165px;
     }
 }
