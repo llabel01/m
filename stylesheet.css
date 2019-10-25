@@ -108,6 +108,11 @@ div.icon {
     }
     .pageTitle {
         padding-left: 165px;
+        font-size: 40px;
+        font-family: 'Quicksand', sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        color: #666564;
     }
 }
 
