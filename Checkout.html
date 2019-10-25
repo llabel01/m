@@ -189,6 +189,9 @@
         }
         mq2.addListener(addMenu);
     </script>
+
+
+    <!--Checkout Page--> 
     <div class="whole" id="whole">
         <div class="header">Checkout</div>
         <br /> <br />
@@ -262,6 +265,8 @@
             <button type="button" class="button" onclick="getTea()">Get My Tea!</button>
         </form>
     </div>
+
+    <!-- Checkout Script-->
     <script language="javascript">
         $(document).ready(function(){
             $('body').removeClass('fade');
@@ -270,15 +275,13 @@
         function getTea(){
             alert("Tea Ordered!");
         }
+
+        /*Dealing with the Cookies*/
         function getCart() {
             var cookieArr = document.cookie.split(";");
-            
-            // Loop through the array elements
-            for(var i = 0; i < cookieArr.length; i++) {
+                        for(var i = 0; i < cookieArr.length; i++) {
                 var cookiePair = cookieArr[i].split("=");
                 
-                /* Removing whitespace at the beginning of the cookie name
-                and compare it with the given string */
                 var cleanPair = decodeURIComponent(cookiePair[1]);
                 document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanPair + "</div>";
             }
