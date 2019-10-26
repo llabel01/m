@@ -56,13 +56,13 @@
         margin-right: 25px;
         color: #666564
     }
-    div.image {
+    div.image ul li img {
         position: relative;
         text-align: center;
         display: inline-block;
         z-index: 5;
     }
-    div.image {
+    div.image ul li div.text {
         margin-top: auto;
         left: 0;
         right: 0;
@@ -149,8 +149,7 @@
     <!---------------------------------------------------------------------->
         <div class="header">Meet our Tea-m</div>
         <div class="image" id="image">
-        <div class="info" id="info"></div>
-<!--            <ul id="galleries">
+           <ul id="galleries">
                 <li>
                     <img src="olivia.jpeg" id="olivia" class="border" width="50%" height="50%" border="0" title="Olivia" />
                     <div class="text" id="text">
@@ -177,19 +176,19 @@
                     <br>
                 </li>
             </ul>
-        </div> -->
+        </div>
         <br /> <br />
 
     <script language="javascript"> 
-        function imageObj(image, bio) {
-            this.image = image;
-            this.bio = bio;
-        }
-        var images = []
-        images.push(new imageObj("olivia.jpeg", "Hi! My name is Olivia and I'm a senior at Tufts studying Computer Science and Community Health.I love tea of all kinds and founded this companybecause I wanted to share my love of tea with others. When I'm not drinking tea, I'm hanging out with friends outside, walking my dog, and painting on my front porch. Enjoy all of our teas!"));
-        for (var i = 0; i < users.length; i++) {
-            document.getElementById("image").innerHTML += "<div class='user' id='" + i + "'>&nbsp" + imageObj[i].image + "&nbsp </div>";
-        }
+//         function imageObj(image, bio) {
+//             this.image = image;
+//             this.bio = bio;
+//         }
+//         var images = []
+//         images.push(new imageObj("olivia.jpeg", "Hi! My name is Olivia and I'm a senior at Tufts studying Computer Science and Community Health.I love tea of all kinds and founded this companybecause I wanted to share my love of tea with others. When I'm not drinking tea, I'm hanging out with friends outside, walking my dog, and painting on my front porch. Enjoy all of our teas!"));
+//         for (var i = 0; i < users.length; i++) {
+//             document.getElementById("image").innerHTML += "<div class='user' id='" + i + "'>&nbsp" + imageObj[i].image + "&nbsp </div>";
+//         }
         $(document).ready(function () {
             $('#olivia').hover(function () {
                 $(this).stop().animate({
