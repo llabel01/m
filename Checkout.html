@@ -218,6 +218,7 @@
         /*Dealing with the Cookies*/
         function getCart() {
             var cookieArr = document.cookie.split(";");
+            var totalCost = 0;
             for(var i = 0; i < cookieArr.length; i++) {
                 var cookiePair = cookieArr[i].split(":");
                 var cleanName = decodeURIComponent(cookiePair[1]);
@@ -225,8 +226,11 @@
                 var cleanNameF = cleanName2[0].substring(1, cleanName2[0].length - 1);
                 var cleanPrice = decodeURIComponent(cookiePair[3]);
                 cleanPrice = cleanPrice.substring(0, cleanPrice.length - 1);
+                totalCost += parseInt(cleanPrice);
                 document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanNameF + ": $" + cleanPrice + "</div>";
             }
+            document.getElementById("entries").innerHTML += "<div class='cart' id='total'>$" + totalCost + "</div>";
+
         }
     </script>
 </body>
