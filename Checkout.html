@@ -284,7 +284,6 @@
                 var cleanName = decodeURIComponent(cookiePair[1]);
                 var cleanName2 = cleanName.split(",");
                 var cleanNameF = cleanName2[0].slice(1);
-                cleanNameF.slice(cleanNameF.length() -1);
                 var cleanPrice = decodeURIComponent(cookiePair[3]);
                 document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanNameF + ": " + cleanPrice + "</div>";
             }
