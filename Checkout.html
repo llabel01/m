@@ -279,12 +279,12 @@
         /*Dealing with the Cookies*/
         function getCart() {
             var cookieArr = document.cookie.split(";");
-                        for(var i = 0; i < cookieArr.length; i++) {
+            for(var i = 0; i < cookieArr.length; i++) {
                 var cookiePair = cookieArr[i].split("=");
-                
-                var cleanPair = decodeURIComponent(cookiePair[1]);
-                document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanPair + ": " +
-                cleanPair + "</div>";
+                var cookiePair2 = cookiePair.split(":");
+                var cleanName = decodeURIComponent(cookiePair[1]);
+                var cleanPrice = decodeURIComponent(cookiePair[5]);
+                document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanName + ": " + cleanPrice + "</div>";
             }
         }
     </script>
