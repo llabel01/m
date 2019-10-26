@@ -75,21 +75,14 @@
         color: #666564;
         z-index: 10;
     }
-    /*div.image ul li p{
-        position: absolute;
-        font-size: 22px;
-        float: right;
-        font-family: 'Quicksand', sans-serif;
-        text-align: center;
-        text-transform: uppercase;
-        margin-left: 50px;
-        margin-right: 25px;
-        color: #666564
-    }*/
     </style>
 
 </head>
 <body>
+        <!---------------------------------------------------------------------->
+        <!--                    Every Page Has This Code                      -->
+        <!---------------------------------------------------------------------->
+    
     <!-- For when screen > 550 px-->
     <div class="nav">
         <ul class="nav">
@@ -111,12 +104,12 @@
     <div class="overlay" id="overlay">
         <ul class="overlay">
             <li><a href="homepage.html">Home</a></li>
-            <li><a href="">Shop</a></li>
-            <li><a href="">Our Menu</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="team.html">Team Members</a></li>
-            <li><a href="">Classes & Events</a></li>
-            <li><a href="">Checkout</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
+            <li><a href="Checkout.html">Checkout</a></li>
         </ul>  
     </div>
 
@@ -150,9 +143,11 @@
         }
         mq2.addListener(addMenu);
     </script>
- <!-- Home Page-->
+    
+    <!---------------------------------------------------------------------->
+    <!--                    TEAM PAGE                                     -->
+    <!---------------------------------------------------------------------->
         <div class="header">Meet our Tea-m</div>
-        
         <div class="image" id="image">
            <ul id="galleries">
                 <li>
@@ -236,41 +231,6 @@
             });
         });
     </script>
-    <!-- Tea_blog Script-->
-<!--     <script language="javascript">
-        function obj(name, text){
-            this.name = name;
-            this.text = text;
-        }
-        var users = [];
-        users.push(new obj("Hi! My name is Olivia and I'm a senior at Tufts studying Computer Science and Community Health. I love tea of all kinds and founded this company because I wanted to share my love of tea with others. When I'm not drinking tea, I'm hanging out with friends outside, walking my dog, and painting on my front porch. Enjoy all of our teas!"));
-        users.push(new obj("Hi! My name is Olivia and I'm a senior at Tufts studying Computer Science and Community Health. I love tea of all kinds and founded this company because I wanted to share my love of tea with others. When I'm not drinking tea, I'm hanging out with friends outside, walking my dog, and painting on my front porch. Enjoy all of our teas!"));
-        for (var i = 0; i < users.length; i++) {
-            document.getElementById("entries").innerHTML += "<div class='user' id='" + i + "'>&nbsp" + users[i].name + "&nbsp </div>";
-        }
-         $(document).ready(function(){
-             $('body').removeClass('fade');
-             $('#entries div').on({
-                mouseover : function() {
-                    $(this).css({
-                        'cursor': 'pointer',
-                        'background-color': '#8E8D8A',
-                    });
-                },
-                mouseout : function(){
-                    $('#entries div').css({
-                        'cursor' : 'default',
-                        'background-color': '#EAE7DC',
-                    });
-                },
-                click : function(){
-                    var index = $("#entries div").index(this);
-                    $("#info").html("<br />" + users[index].text + "")
-                        .show();
-                },
-            });
-        });
-    </script> -->
 
 </body>
 
