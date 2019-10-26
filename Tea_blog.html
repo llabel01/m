@@ -53,66 +53,6 @@
             opacity: 0;
             transition: none;
         }
-
-        /* ~Responsive~ Overlay */
-        div.overlay {
-            text-align: center;
-            visibility: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 2;
-        }
-        ul.overlay {
-            list-style-type: none;
-        }
-        ul.overlay li {
-            margin: 24px 0;
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-        }
-        ul.overlay li a {
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #EAE7DC;
-        }
-        ul.overlay li a:hover {
-            color: #666564;
-        }
-
-        /* Hamburger Menu */
-        div.icon {
-            float: right;
-            color: #000000;
-            visibility: hidden;
-            z-index: 2;
-        }
-
-        /* Media queries control which nav bar to display */
-        @media screen and (max-width: 550px) {
-            .nav {
-                visibility: hidden;
-            }
-            #menuBars {
-                visibility: visible;
-            }
-        }
-        @media screen and (min-width: 550px) {
-            .nav {
-                visibility: visible;
-            }
-            div.icon {
-                visibility: hidden;
-            }
-            div.overlay {
-                visibility: hidden;               
-            }
-        }
     </style>
 </head>
 <body>
