@@ -283,10 +283,9 @@
                 var cookiePair = cookieArr[i].split(":");
                 var cleanName = decodeURIComponent(cookiePair[1]);
                 var cleanName2 = cleanName.split(",");
-                var cleanNameF = cleanName2[0].slice(1);
-                cleanNameF = cleanNameF.slice(cleanNameF.length);
+                var cleanNameF = cleanNameF.substring(1, cleanNameF.length);
                 var cleanPrice = decodeURIComponent(cookiePair[3]);
-                cleanPrice = cleanPrice.slice(cleanPrice.length);
+                cleanPrice = cleanPrice.substring(0, cleanPrice.length);
                 document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanNameF + ": " + cleanPrice + "</div>";
             }
         }
