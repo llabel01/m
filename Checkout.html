@@ -283,7 +283,7 @@
                 var cookiePair = cookieArr[i].split(":");
                 var cleanName = decodeURIComponent(cookiePair[1]);
                 var cleanName2 = cleanName.split(",");
-                var cleanPrice = decodeURIComponent(cookiePair[5]);
+                var cleanPrice = decodeURIComponent(cookiePair[4]);
                 document.getElementById("entries").innerHTML += "<div class='cart' id='" + i + "'>" + cleanName2[0] + ": " + cleanPrice + "</div>";
             }
         }
