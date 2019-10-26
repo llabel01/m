@@ -119,35 +119,37 @@
 <body>
     <script>document.body.className += ' fade';</script>
 
-    <!-- For when screen > 550 px-->
+<div id="FixedHeader">
+        <div class="icon">
+            <i id="menuBars" class="fa fa-bars fa-2x"></i>
+        </div>
+        <img id="headLogo" src="tea.png" alt="Cup of Tea with Logo">
+    </div>
 
-    <div class="nav" id="nav">
+    <!-- For when screen > 550 px-->
+    <div class="nav">
+        <img id="navLogo" src="tea.png" alt="Cup of Tea with Logo">
         <ul class="nav">
-            <img class='logo' id='logo'  src='tea.png' />
-            <li><a href="">Home</a></li>
+            <li><a href="homepage.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="">Our Menu</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="">Team Members</a></li>
-            <li><a href="">Classes & Events</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
+            <li><a href="team.html">Team Members</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
             <li><a href="Checkout.html">Checkout</a></li>
         </ul>   
     </div> 
 
-    <div class="icon">
-        <i id="menuBars" class="fa fa-bars fa-2x"></i>
-    </div>
-
     <!-- For when screen < 550 px-->
     <div class="overlay" id="overlay">
         <ul class="overlay">
-            <li><a href="">Home</a></li>
+            <li><a href="homepage.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="">Our Menu</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="">Team Members</a></li>
-            <li><a href="">Classes & Events</a></li>
-            <li><a href="">Checkout</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="Tea_blog.html">Blog</a></li>
+            <li><a href="team.html">Team Members</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
+            <li><a href="Checkout.html">Checkout</a></li>
         </ul>  
     </div>
 
@@ -157,13 +159,11 @@
             $('#menuBars').css('visibility', 'hidden');
             $('div.overlay').css('visibility', 'visible');
         })
-
         /* User has clicked in div, but not on a link - hide overlay */
         $('div.overlay').click(function(){
             $('div.overlay').css('visibility', 'hidden');
             $('#menuBars').css('visibility', 'visible');
         })
-
         /* Special event listeners to hide overlay and 
          * re-build icon when screen is resized - needed as
          * javascript overrides media queries */
@@ -183,6 +183,8 @@
         }
         mq2.addListener(addMenu);
     </script>
+
+    <!--<h2 class=pageTitle>Hear About Tea Experiences</h2>-->
 
 
 
