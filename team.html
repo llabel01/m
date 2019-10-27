@@ -152,7 +152,7 @@
            <ul id="galleries">
                 <li>
                     <img src="olivia.jpeg" id="olivia" class="border" width="50%" height="50%" border="0" title="Olivia" />
-                    <div class="text" id="text">
+                    <div class="text_olivia" id="text_olivia">
                         Hi! My name is Olivia and I'm a senior at Tufts<br>
                         studying Computer Science and Community Health. <br>
                         I love tea of all kinds and founded this company<br>
@@ -165,7 +165,7 @@
                 </li>
                 <li>
                     <img src="lauren.jpeg"  id="lauren" class="border" width="50%" height="50%" border="0" title="Lauren" />
-                    <div class="text" id="text">
+                    <div class="text_lauren" id="text_lauren">
                         My name is Lauren and I'm a junior at Tufts University
                         studying Computer Science and German. I have
                         always loved tea, however after a trip to Nepal
@@ -203,24 +203,24 @@
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text').fadeIn();
+                $('.text_olivia').fadeIn();
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text').fadeOut();
+                $('.text_olivia').fadeOut();
             });
 
              $('#lauren').hover(function () {
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text').removeClass('hide');
+                $('.text_lauren').removeClass('hide');
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text').addClass('hide');
+                $('.text_lauren').addClass('hide');
             });
 
               $('#olivia3').hover(function () {
