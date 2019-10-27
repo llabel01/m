@@ -252,12 +252,12 @@
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text_andrew').removeClass('hide');
+                $('.text_andrew').fadeIn();
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text_andrew').addClass('hide');
+                $('.text_andrew').fadeOut();
             });
 
                $('#olivia4').hover(function () {
