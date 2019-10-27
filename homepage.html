@@ -38,8 +38,14 @@
         margin-right: 25px;
         color: #E98074
     }
-    div.button ul li{
-        float: left;
+    div.button {
+        width: 75%;
+        overflow-y: auto;
+        text-decoration: none;
+        text-align: center;
+        margin: auto;
+        padding: 20px;
+        /*float: left;
         background-color: #E98074;
         border: none;
         color: white;
@@ -50,11 +56,20 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        text-decoration: none;
+        text-decoration: none;*/
     }
-    div.button ul li a {
+    div.button > a {
         text-decoration: none;
-        color: #666564 ;
+        width: 120px;
+        height: 40px;
+        float: center;
+        margin: 15px;
+        background-color: #E98074;
+        border: none;
+        color: white;
+        display: inline-block;
+        font-size: 16px;
+        color: #666564;
     }
     div.about p{
         font-size: 22px;
@@ -81,9 +96,7 @@
 
 </head>
 <body>
-     <!---------------------------------------------------------------------->
     <!--                    Every Page Has This Code                      -->
-    <!---------------------------------------------------------------------->
 
     <!-- For when screen < 550 px-->
     <div class="icon">
@@ -134,9 +147,7 @@
     </script>
     </script>
     
-    <!---------------------------------------------------------------------->
     <!--                  HOME PAGE CODE                                  -->
-    <!---------------------------------------------------------------------->
     <div class="whole" id="whole">
         <div class="header">So... What's the Tea?</div>
         <div class="about">
@@ -145,24 +156,16 @@
         <!-- <img class="cups" id="cups" src="cups.jpg"/> -->
         <img class='container' id='container'  src='tea.png' />
          <div class="button" id="button">
-            <ul> 
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="menu.html">Our Menu</a></li>
-                <li><a href="Tea_blog.html">Blog</a></li>
-                <li><a href="team.html">Team Members</a></li>
-                <li><a href="calendar.html">Classes & Events</a></li>
-                <li><a href="Checkout.html">Checkout</a></li>
-            </ul> 
+            <a href="shop.html">Shop</a>
+            <a href="menu.html">Our Menu</a>
+            <a href="Tea_blog.html">Blog</a>
+            <a href="team.html">Team Members</a>
+            <a href="calendar.html">Classes & Events</a>
+            <a href="Checkout.html">Checkout</a>
         </div>
         <br /> <br />
         <div  class="entries" id="entries"></div>
         <div class="info" id="info"></div>
     </div>
-    <script language="javascript">
-        var s_width = screen.width;
-        if (s_width < 1300px)
-            $(".button").hide();
-
 </body>
-
 </html>
