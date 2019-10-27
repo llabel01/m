@@ -78,19 +78,6 @@
         color: #666564;
         z-index: 10;
     }
-/*     div.image ul.galleries li div.text_lauren {
-/*         margin-top: auto;
-        left: 0;
-        right: 0; */
-/*         position: absolute;
-        display: none;
-        font-weight: bold;
-        font-size: 15px;
-        font-family: 'Quicksand', sans-serif;
-        text-transform: uppercase;
-        color: #666564;
-        z-index: 10; 
-    } */
    @media screen and (max-width: 550px) {
       article {   
          margin-left: 0px;           
@@ -204,7 +191,16 @@
                     <br>
                 </li>
                 <li>
-                    <img src="olivia.jpeg"  id="olivia3" class="border" width="50%" height="50%" border="0" title="Olivia" />
+                    <img src="IMG_1488(3).JPG"  id="andrew" class="border" width="50%" height="50%" border="0" title="Olivia" />
+                    <div class="text_andrew" id="text">
+                        Hello fellow tea enthusiasts, my name is Andrew<br>
+                        Cervantes. I am currently a Junior at Tufts <br>
+                        University studying computer science with a minor <br>
+                        in history. I am originally from Cape May County, <br>
+                        New Jersey, but no, I wasn’t on “The Jersey Shore”.<br>
+                        When I’m not drinking tea or working at the company <br>
+                        I enjoy planning trips to new countries so that I can <br>
+                        have a cup of tea in every country in the world.
                     <br>
                 </li>
                 <li>
@@ -251,17 +247,17 @@
                 }, 500);
                 $('.text_lauren').fadeOut();
             });
-
-              $('#olivia3').hover(function () {
+              $('.text_andrew').hide()
+              $('#andrew').hover(function () {
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text').removeClass('hide');
+                $('.text_andrew').removeClass('hide');
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text').addClass('hide');
+                $('.text_andrew').addClass('hide');
             });
 
                $('#olivia4').hover(function () {
