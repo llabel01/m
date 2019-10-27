@@ -179,12 +179,12 @@
                 <li>
                     <img src="lauren.jpeg"  id="lauren" class="border" width="50%" height="50%" border="0" title="Lauren" />
                     <div class="text_lauren" id="text_lauren">
-                        My name is Lauren and I'm a junior at Tufts University
-                        studying Computer Science and German. I have
-                        always loved tea, however after a trip to Nepal
-                        I became interesting learning more about the history
-                        and traditions of tea drinking. I now teach our tea
-                        basics and and tea pairing classes. Join us at one of
+                        My name is Lauren and I'm a junior at Tufts University<br>
+                        studying Computer Science and German. I have<br>
+                        always loved tea, however after a trip to Nepal<br>
+                        I became interesting learning more about the history<br>
+                        and traditions of tea drinking. I now teach our tea<br>
+                        basics and and tea pairing classes. Join us at one of<br>
                         our events!
                     </div>
                     <br>
@@ -228,12 +228,12 @@
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text_lauren').removeClass('hide');
+                $('.text_lauren').fadeIn();
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text_lauren').addClass('hide');
+                $('.text_lauren').fadeOut;
             });
 
               $('#olivia3').hover(function () {
