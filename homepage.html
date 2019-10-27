@@ -113,6 +113,49 @@
             }
         }
         mq2.addListener(addMenu);
+         <!-- For when screen < 550 px-->
+    <div class="overlay" id="overlay">
+        <ul class="overlay">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="team.html">Team Members</a></li>
+            <li><a href="calendar.html">Classes & Events</a></li>
+            <li><a href="Checkout.html">Checkout</a></li>
+        </ul>  
+    </div>
+
+    <script language="javascript">
+        /* User has clicked menu - display overlay */
+        $('#menuBars').click(function(){
+            $('#menuBars').css('visibility', 'hidden');
+            $('div.overlay').css('visibility', 'visible');
+        })
+        /* User has clicked in div, but not on a link - hide overlay */
+        $('div.overlay').click(function(){
+            $('div.overlay').css('visibility', 'hidden');
+            $('#menuBars').css('visibility', 'visible');
+        })
+        /* Special event listeners to hide overlay and 
+         * re-build icon when screen is resized - needed as
+         * javascript overrides media queries */
+        var mq1 = window.matchMedia('(min-width: 550px)');
+        function deleteOverlay (e) {
+            if (e.matches) {
+                $('div.overlay').css('visibility', 'hidden');
+                $('#menuBars').css('visibility', 'hidden');
+            }
+        }
+        mq1.addListener(deleteOverlay);
+        var mq2 = window.matchMedia('(max-width: 550px)');
+        function addMenu (e) {
+            if (e.matches) {
+                $('#menuBars').css('visibility', 'visible');
+            }
+        }
+        mq2.addListener(addMenu);
+    </script>
     </script>
     
     <!---------------------------------------------------------------------->
