@@ -226,12 +226,13 @@
         /*Dealing with the Cookies*/
         function getCart() {
             var cookieArr = document.cookie.split(";");
-            if (typeof cookieArr == 'undefined'){
+            if (typeof cookieArr[0] == 'undefined'){
                 document.getElementById("entries").innerHTML = "<div class='cart'>Cart is empty</div>";
             }
             else{
                 var totalCost = 0.0;
                 for(var i = 0; i < cookieArr.length; i++) {
+                    console.log(cookieArr[0]);
                     var cookiePair = cookieArr[i].split(":");
                     var cleanName = decodeURIComponent(cookiePair[1]);
                     var cleanName2 = cleanName.split(",");
