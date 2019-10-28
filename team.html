@@ -210,7 +210,7 @@
                 </li>
                 <li>
                     <img src="catherine.jpg"  id="catherine" class="border" width="50%" height="50%" border="0" title="Catherine" />
-                     <div class="text_andrew" id="text">
+                     <div class="text_catherine" id="text">
                         Hi! My name is Catherine and I’m a Junior at Tufts studying Psychology 
                          and Environmental Studies Major. I’ve always loved drinking tea and 
                          sharing my love of the drink with my friends and family which is why I 
@@ -272,17 +272,17 @@
                 }, 500);
                 $('.text_andrew').fadeOut();
             });
-
+               $('.text_catherine').hide()
                $('#catherine').hover(function () {
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text').removeClass('hide');
+                $('.text_catherine').removeClass('hide');
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text').addClass('hide');
+                $('.text_catherine').addClass('hide');
             });
         });
     </script>
