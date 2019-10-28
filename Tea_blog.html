@@ -133,7 +133,7 @@
             }
         }
         mq1.addListener(deleteOverlay);
-        var mq2 = window.matchMedia('(max-width: 550px)');
+        var mq2 = window.matchMedia('(max-width: 600px)');
         function addMenu (e) {
             if (e.matches) {
                 $('#menuBars').css('visibility', 'visible');
@@ -159,7 +159,7 @@
         users.push(new obj("Adam Jones", "I used to be stressed out a lot. Now, when I say a lot I mean 24 hours of the day, 7 days a week a lot. I would wake up in the middle of the night not being able to breathe. My shoulders would creep up to my ears making me look like Quasimodo. My body would be so inflamed that I couldn't even cross my legs. It even caused me to develop several food allergies that were detrimental to my health. In other words, stress is one powerful mambajamba. I came to What's the Tea hoping for anything to cure my aching stress. And wow did it make Tea brings me back to earth. It brings me ease. It makes me feel calm and ready to tackle the events with no worries whatsoever. Now, not only am I not stressed, but if anything I need to be more stressed. I am now so calm that I don't study for anything and sleep 14 hours a day. I know you may find this worrying but honestly I feel this is a great improvement, and I just go with the flow thanks to What's the Tea."));
 
         for (var i = 0; i < users.length; i++) {
-            document.getElementById("entries").innerHTML += "<div class='user' id='" + i + "'>&nbsp" + users[i].name + "&nbsp </div>";
+            document.getElementById("entries").innerHTML += "<div class='user' id='user'>&nbsp" + users[i].name + "&nbsp </div>";
         }
          $(document).ready(function(){
              $('body').removeClass('fade');
