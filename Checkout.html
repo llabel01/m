@@ -228,6 +228,9 @@
         /*Dealing with the Cookies*/
         function getCart() {
             var cookieArr = document.cookie.split(";");
+            if (cookieArr == null){
+                document.getElementById("entries").innerHTML = "<div class='cart'>Cart is empty</div>";
+            }
             var totalCost = 0.0;
             for(var i = 0; i < cookieArr.length; i++) {
                 var cookiePair = cookieArr[i].split(":");
