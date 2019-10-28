@@ -211,12 +211,12 @@
                 <li>
                     <img src="catherine.jpg"  id="catherine" class="border" width="50%" height="50%" border="0" title="Catherine" />
                      <div class="text_catherine" id="text">
-                        Hi! My name is Catherine and I’m a Junior at Tufts studying Psychology 
-                         and Environmental Studies Major. I’ve always loved drinking tea and 
-                         sharing my love of the drink with my friends and family which is why I 
-                         joined the team at “What’s the Tea.” I organize our tea tasting events 
-                         and market our products throughout the country. 
-                         I hope to see you at one of our tea events!
+                        Hi! My name is Catherine and I’m a Junior at Tufts studying Psychology <br>
+                         and Environmental Studies Major. I’ve always loved drinking tea and <br>
+                         sharing my love of the drink with my friends and family which is why I <br>
+                         joined the team at “What’s the Tea.” I organize our tea tasting events <br>
+                         and market our products throughout the country. <br>
+                         I hope to see you at one of our tea events!<br>
                     </div>
                     <br>
                 </li>
@@ -272,17 +272,17 @@
                 }, 500);
                 $('.text_andrew').fadeOut();
             });
-               $('.text_catherine').hide()
-               $('#catherine').hover(function () {
+           $('.text_catherine').hide()
+              $('#catherine').hover(function () {
                 $(this).stop().animate({
                     opacity: .25
                 }, 200);
-                $('.text_catherine').removeClass('hide');
+                $('.text_catherine').fadeIn();
             }, function () {
                 $(this).stop().animate({
                     opacity: 1
                 }, 500);
-                $('.text_catherine').addClass('hide');
+                $('.text_catherine').fadeOut();
             });
         });
     </script>
