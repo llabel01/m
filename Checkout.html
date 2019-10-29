@@ -67,7 +67,13 @@
         @media screen and (max-width: 550px) {
          #whole{   
             padding-left: 0px;
-         }   
+         }
+         #data{
+            width: 40%;
+            }
+         #halfdata{
+            width: 15%;
+            }
         }
     </style>
 </head>
@@ -107,15 +113,15 @@
         <br />
         <form>
             Name:<br/>
-            <Input type="text" class="data" id="name1"></Input><br />
+            <Input type="text" class="data" id="data"></Input><br />
             Address Line 1:<br/>
-            <Input type="text" class="data" id="add1"></Input><br />
+            <Input type="text" class="data" id="data"></Input><br />
             Address Line 2:<br/>
-            <Input type="text" class="data" id="add2"></Input><br />
+            <Input type="text" class="data" id="data"></Input><br />
             City:<br/>
-            <Input type="text" class="data" id="City"></Input><br />
+            <Input type="text" class="data" id="data"></Input><br />
             State: &nbsp &nbsp &nbsp &nbsp &nbsp Zip Code:<br/>
-            <select class="halfdata">
+            <select class="halfdata" id="halfdata">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -168,7 +174,7 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>               
-            <Input type="text" class="halfdata" id="zip"></Input><br /><br />
+            <Input type="text" class="halfdata" id="halfdata"></Input><br /><br />
             <button type="button" class="button" onclick="getTea()">Get My Tea!</button>
         </form>
     </div>
